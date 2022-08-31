@@ -1,0 +1,15 @@
+
+
+.container .header .product{
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #1E1E1E;
+}
+
+
+.container .content {
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}

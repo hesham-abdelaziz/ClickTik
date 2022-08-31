@@ -1,0 +1,62 @@
+
+<span *ngIf="isLoading">Loading...</span>
+<h4 *ngIf="errorMsg">{{errorMsg}}</h4>
+<h4 *ngIf="!isLoading" class="font-regular">({{products.length}}) Products Found</h4>
+<div class="products" *ngIf="!isLoading">
+    <h4 *ngIf="message.length > 0" class="font-bold">{{message}}</h4>
+    <div class="card" *ngFor="let product of productsToDisplay">
+        <span class="discount-badge">{{-product.discountPercentage + "%"}}</span>
+  
+        <div class="card-header">
+            <img class="card-image" [src]="product.thumbnail" alt="">
+           
+        </div>
+    
+        <div class="card-body">
+            <div class="product-title">
+                <p class="font-bold " style="font-size: 20px;">{{product.title}}</p>
+            </div>
+            <div class="product-description">
+                <p >{{product.description}}</p>
+            </div>
+            <div class="price">
+                <span class="price-before" style="text-decoration: line-through;">
+                    {{product.price  | currency : 'USD':'code'}}
+                </span>
+                <span class="price-after">
+                    {{product.price * ( 100 - product.discountPercentage) / 100  | currency : 'USD':'code'}}
+                </span>
+            </div>
+
+            <div class="product-details">
+                <ul>
+                    <li>Brand : <span class="font-bold">{{product.brand}}</span></li>
+                    <li>Category : <span class="font-bold">{{product.category}}</span></li>
+                    <li>In stock : <span class="font-bold">{{product.stock}}</span></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="card-footer">
+            <div class="rate" >
+                <fa-icon [icon]="starIcon"></fa-icon>
+                {{product.rating}}
+                <span style="color: var(--main-color);">(11)</span>
+            </div>
+
+            <div class="addBtn ">
+                <button class="btn font-bold" (click)="addToCart()">add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<pagination
+    *ngIf="!isLoading && products.length > 0"
+  [currentPage]="current"
+  [totalProducts]="totalProducts"
+  (goTo)="onGoTo($event)"
+  (next)="onNext($event)"
+  (previous)="onPrevious($event)"
+></pagination>

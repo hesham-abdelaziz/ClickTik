@@ -1,0 +1,29 @@
+<ul>
+    <li>
+      <button
+        [disabled]="currentPage === 1"
+        (click)="onPrevious()"
+      >
+        <fa-icon [icon] ="prevIcon"></fa-icon>
+      </button>
+    </li>
+    <li *ngFor="let page of pages;">
+      <a
+        [class.currentPage]="page === currentPage"
+        (click)="onGoTo(page)"
+        (keyup.enter)="onGoTo(page)"
+        [class.disabled] ="page == '...'"
+        >
+        {{ page }}</a
+      >
+    </li>
+    <li>
+      <button
+        [disabled]="currentPage === totalProducts"
+        (click)="onNext()"
+      >
+      <fa-icon [icon] ="nextIcon"></fa-icon>
+
+      </button>
+    </li>
+  </ul>

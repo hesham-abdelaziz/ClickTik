@@ -1,0 +1,49 @@
+<nav>
+    <div class="left">
+        <div class="logo">
+            <div class="dot"></div>
+            <div class="overlay"></div>
+        </div>
+        <p class="font-medium">ClickTik</p>
+        <a *ngIf="isAuthenticated" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    </div>
+
+    <div class="right">
+        <ng-container  class="login" *ngIf="!isAuthenticated">
+            <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Log in</a>
+        </ng-container>  
+    
+    
+        <ng-container *ngIf="isAuthenticated">
+            <div class="user-options">
+
+                  <div class="input-group">
+                    <span (click)="searchProduct(query.value)">
+                        <fa-icon [icon]="searchIcon" ></fa-icon>
+                    </span>
+                    <input type="text" placeholder="Search" (keydown.enter)="onKeyDown( query.value)" #query>
+                  </div>
+                <span class="cartIcon">
+                    <div class="number" *ngIf="inCart">{{inCart}}</div>
+                    <fa-icon [icon]="cartIcon"></fa-icon>
+                </span>
+            <span class="user-menu-toggle" (click)="toggleMenu()">Account</span>
+            </div>
+        </ng-container>
+    </div>
+
+</nav>
+
+
+
+
+<div class="user-menu" *ngIf="isMenuToggled" [@open]>
+
+    <ul>
+        <li>Profile</li>
+    </ul>
+
+    <div class="logout">
+        <a (click)="authService.logout()">Logout</a>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    z-index: 1;
+}
+
+
+.left{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    user-select: none;
+}
+
+
+
+.left a {
+    margin-left: 30px;
+}
+
+.right {
+    margin-right: 25px;
+}
+.user-options {
+    display: flex;
+    align-items: center;
+    color: var(--main-color);
+}
+
+
+
+
+.user-options  input  {
+    width: 319px;
+    height: 32px;
+    margin-right: 55px;
+    opacity: .5;
+    padding-left: 30px;
+    border: 1px solid var(--main-color);
+    border-radius: var(--border-radius-1);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.user-options  input:focus{
+    border: 1px solid var(--bg-color);
+}
+
+.user-options  .input-group{
+    position: relative;
+}
+.user-options  .input-group fa-icon{
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.user-options .cartIcon{
+    position: relative;
+    cursor: pointer;
+}
+
+.user-options  .number{
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+
+
+
+.user-menu-toggle {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+
+.user-menu{
+    position: fixed;
+    top: 80px;
+    right: 35px;
+    background-color: #fff;
+    border-radius: var(--border-radius-2);
+    width: 150px;
+    height: auto;
+    padding: 10px 10px 20px 10px;
+    box-shadow: 0 15px 17px 0 rgb(0, 0, 0 , .2);
+    z-index: 1;
+}
+.user-menu ul li{
+    margin-bottom: 8px;
+    padding: 8px;
+    border-bottom: 1px solid var(--main-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-menu ul li:hover{
+    color: var(--bg-color);
+}
+
+.user-menu .logout  {
+    text-align: center;
+
+}
+
+.user-menu .logout a {
+    color: var(--main-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.user-menu .logout a:hover {
+    color: var(--bg-color);
+
+}
+

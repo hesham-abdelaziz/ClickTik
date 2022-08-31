@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="font-semi">Log in to your account</h4>
+            <p style="color: var(--main-color);">Welcome back! Please enter your details.</p>
+        </div>
+
+        <div class="card-body">
+            <form [formGroup] = 'loginForm' (ngSubmit)="login(loginForm.value)">
+                <div class="email-input input-group">
+                    <label for="email">Email</label>
+                    <input 
+                    [class.invalid] ="loginForm.get('username').touched && loginForm.get('username').invalid"
+                    type="email"
+                     id="email"
+                      placeholder="Enter your email"
+                      formControlName="username">
+                    <p class="error-msg" *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid  ">Please enter your email</p>
+                </div>
+                <div class="password-input input-group">
+                    <label for="password">Password</label>
+                    <div class="input-holder">
+                        <input
+                    [class.invalid] ="loginForm.get('password').touched && loginForm.get('password').invalid"
+                         [type]="hide ? 'password' : 'text'"
+                          id="password"
+                           placeholder="Enter your password"
+                            formControlName="password">
+                        <span class="toggle-hide" type="button" (click)="toggleHide()">
+                            <fa-icon [icon]="hideIcon" *ngIf="hide"></fa-icon>
+                            <fa-icon [icon]="showIcon" *ngIf="!hide"></fa-icon>
+                        </span>
+                        <p
+                         class="error-msg"
+                         *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid ">Please enter your password</p>
+                    </div>
+                </div>
+                    <p class="error-msg">{{errorMsg}}</p>
+                <div class="card-footer">
+                        <button class="btn font-bold">Sign in</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

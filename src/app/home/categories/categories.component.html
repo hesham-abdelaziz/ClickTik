@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header">
+        <p class="font-bold">Products</p>
+    </div>
+    <div class="card-body">
+        <span *ngIf="isLoading">Loading...</span>
+        <h4 *ngIf="errorMsg">{{errorMsg}}</h4>
+
+        <div *ngIf="!isLoading">
+            <div class="categories" *ngFor="let category of categories; let i = index">
+                <input type="radio"
+                 [id]="category" 
+                  [value]="category"
+                   name="categories" 
+                   [checked]="searchQuery ? '': i == 0"
+                   (change)="changeEvent(category)" 
+                >
+                <label [for]="category">{{category}} 
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
