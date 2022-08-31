@@ -14,14 +14,3 @@ export const open =
     ]),
   ])
 
-export const load =  
-trigger('load' , [
-    transition(':enter' , [
-      style({transform : 'scale(0)' , opacity : 0}),
-      animate('800ms ease' , style({transform : 'scale(1)' , opacity : 1}))
-    ]),
-    transition(':leave' , [
-      style({transform : 'scale(1)' , opacity : 1}),
-      animate('400ms ease' , style({transform : 'scale(0)' , opacity : 0}))
-    ]),
-  ])
